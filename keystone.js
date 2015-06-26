@@ -94,12 +94,6 @@ keystone.set('nav', {
 	'users': 'users'
 });
 
-//Optionals
-keystone.set('mandrill api key', 'ymR8bqp_lDQb_SQ0aI4Idw');
-keystone.set('mandrill username', 'pacas00@gmail.com');
-keystone.set('cloudinary config', 'cloudinary://137141647794972:zOjOJgOD_P6NXTdo0CVYlGHNNnk@demzungk7');
-keystone.set('embedly api key', '8e5ce2412ed345f5808aa87449eaa93d');
-
 //Web Settings
 keystone.set('port', 8083);
 keystone.set('host', '117.120.41.2');
