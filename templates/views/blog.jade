@@ -45,7 +45,8 @@ block content
 						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							+post(post)
+							.container: .jumbotronmicro
+								+post(post)
 					
 					if data.posts.totalPages > 1
 						ul.pagination
