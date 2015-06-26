@@ -3,6 +3,7 @@ var Types = keystone.Field.Types;
 
 var Videos = new keystone.List('Videos', {
 	map: { name: 'videoKey' },
+	map: { name: 'videoUrl' },
 	autokey: { path: 'slug', from: 'videoKey', unique: true }
 });
 
