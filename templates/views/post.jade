@@ -27,5 +27,5 @@ block content
 					if data.post.image.exists
 						.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
 					if data.post.videoData.exists
-						| #{data.post.videoData.html}
+						!= data.post.videoData.html
 					!= data.post.content.full
