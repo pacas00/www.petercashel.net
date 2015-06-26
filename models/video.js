@@ -6,8 +6,7 @@ var Videos = new keystone.List('Videos', {
 });
 
 Videos.add({
-    videoKey: { type: String, required: true },
-	videoUrl: { type: Types.Url },
+    videoUrl: { type: Types.Url, required: true },
     videoData: { type: Types.Embedly, from: 'videoUrl' }
 });
 
