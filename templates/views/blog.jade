@@ -41,12 +41,11 @@ block content
 							|  of 
 							strong #{data.posts.total}
 							|  posts.
-					else
-						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+					//else
+						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.container: .jumbotron
-								+post(post)
+							+post(post)
 					
 					if data.posts.totalPages > 1
 						ul.pagination
