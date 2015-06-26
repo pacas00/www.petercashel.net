@@ -2,8 +2,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Videos = new keystone.List('Videos', {
-	map: { name: 'videoKey' },
-	autokey: { path: 'slug', from: 'videoKey', unique: true }
+	map: { name: 'videoUrl' }
 });
 
 Videos.add({
@@ -26,6 +25,10 @@ Videos.schema.virtual('videoDescription').get(function() {
 
 Videos.schema.virtual('videoAuthorUrl').get(function() {
 	return this.videoData.authorUrl;
+});
+
+Videos.add({
+	autokey: { path: 'slug', from: 'videoTitle', unique: true }
 });
 
 Videos.register();
