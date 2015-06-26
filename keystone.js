@@ -97,7 +97,6 @@ keystone.set('nav', {
 
 //Web Settings
 keystone.set('port', 8083);
-keystone.set('host', '117.120.41.2');
 
 // Start Keystone to connect to your database and initialise the web server
 
