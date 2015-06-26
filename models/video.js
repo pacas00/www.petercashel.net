@@ -2,13 +2,13 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Videos = new keystone.List('Videos', {
-	map: { name: 'videoKey', name: 'videoUrl' },
+	map: { name: 'videoKey' },
 	autokey: { path: 'slug', from: 'videoKey', unique: true }
 });
 
 Videos.add({
     videoKey: { type: String, required: true },
-	videoUrl: { type: Types.Url, required: true },
+	videoUrl: { type: Types.Url },
     videoData: { type: Types.Embedly, from: 'videoUrl' }
 });
 
