@@ -39,6 +39,9 @@ html
 		//- HEADER
 		#header: .container
 
+			//Replace with logo banner
+			img(src='/images/banner.svg')
+			
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
 
@@ -84,7 +87,9 @@ html
 		//- FOOTER
 		.container: #footer
 
+			block footer
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
+			p Copyright © 2015 Peter Cashel.
 			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
 
 
