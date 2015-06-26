@@ -7,7 +7,7 @@ mixin post(post)
 			a(href='/blog/post/' + post.slug): img(src=post._.image.fit(160,160)).img.pull-right
 		else
 			if post.videoData.exists
-				a(href='/blog/post/' + post.slug): (img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right)
+				a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right
 		//p.lead.text-muted Posted 
 			//if post.publishedDate
 			//	| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
