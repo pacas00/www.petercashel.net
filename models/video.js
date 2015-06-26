@@ -11,7 +11,7 @@ Videos.add({
 });
 
 Videos.add({
-	autokey: { path: 'slug', from: this.videoData.title, unique: true }
+	autokey: { path: 'slug', from: 'videoData.title', unique: true }
 });
 
 Videos.schema.virtual('videoHTML').get(function() {
