@@ -10,6 +10,10 @@ Videos.add({
     videoData: { type: Types.Embedly, from: 'videoUrl' }
 });
 
+Videos.add({
+	autokey: { path: 'slug', from: this.videoData.title, unique: true }
+});
+
 Videos.schema.virtual('videoHTML').get(function() {
 	return this.videoData.html;
 });
@@ -24,10 +28,6 @@ Videos.schema.virtual('videoDescription').get(function() {
 
 Videos.schema.virtual('videoAuthorUrl').get(function() {
 	return this.videoData.authorUrl;
-});
-
-Videos.add({
-	autokey: { path: 'slug', from: 'videoTitle', unique: true }
 });
 
 Videos.register();
