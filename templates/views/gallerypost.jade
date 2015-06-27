@@ -23,8 +23,7 @@ block content
 									img(src=data.gallerypost._.heroImage, alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
 								.item
-									a(href=image.url)
-										img(src=image, alt=data.gallerypost.name + ' image ' + (i+1))
+									img(src=image, alt=data.gallerypost.name + ' image ' + (i+1))
 
 						.carousel-control
 							a.left.carousel-control(href="#myCarousel" data-slide="prev")
