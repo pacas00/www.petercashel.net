@@ -15,6 +15,7 @@ block content
 					p.
 					p.
 					.carousel
+					#myCarousel.carousel.slide(data-ride="carousel")
 						// Wrapper for slides
 						.carousel-inner
 							if data.gallerypost.heroImage.exists
@@ -26,3 +27,7 @@ block content
 										img(data-src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
 
 						.carousel-control
+							a.left.carousel-control(href="#myCarousel" data-slide="prev")
+								span.glyphicon.glyphicon-chevron-left
+							a.right.carousel-control(href="#myCarousel" data-slide="next")
+								span.glyphicon.glyphicon-chevron-right
