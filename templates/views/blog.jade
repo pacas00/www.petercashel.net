@@ -15,6 +15,7 @@ mixin post(post)
 				else
 					if post.videoData.exists
 						a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
+				p.lead.text-muted 
 				p!= post.content.brief
 				if post.content.extended
 					p.read-more: a(href='/blog/post/' + post.slug) Read more...
