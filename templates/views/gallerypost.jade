@@ -1,5 +1,8 @@
 extends ../layouts/default
 
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+
 block content
 	.container
 		article
@@ -12,13 +15,29 @@ block content
 					if data.gallerypost.publishedDate
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
 				
-				.row.gallery-images
+				.gallery-images
 					if data.gallerypost.heroImage.exists
-						.col-sm-4.col-md-4.gallery-image: a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.limit(680,680)).img-rounded
-						.col-sm-8.col-md-8: .row
-							each image in data.gallerypost.images
-								.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.limit(600,600)).img-rounded
-					else
-						each image in data.gallerypost.images
+						.row
+							.col-xs-12
+								a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.limit(1280,720)).img-rounded
+					
+					.row
+						each image, i in data.gallerypost.images
 							.col-xs-6.col-sm-4.col-md-3.data.gallery-image: a(href=image.url): img(src=image.limit(600,600)).img-rounded
-		
+
+block page-js
+	script(src='/js/bootstrap/modal.js')
+	script(src='/js/bootstrap/carousel.js')
+	script(src="/js/fancybox/jquery.fancybox.pack.js")
+	script.
+		jQuery(function($) {
+			$('.gallery-images').find('.gallery-image').fancybox({
+				prevEffect: 'none',
+				nextEffect: 'none',
+				closeBtn: false,
+				helpers: {
+					title: {},
+					buttons: {}
+				}
+			});
+		});
