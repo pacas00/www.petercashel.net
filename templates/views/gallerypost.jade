@@ -14,11 +14,11 @@ block content
 					br.
 					.row.gallery-images
 						if data.gallerypost.heroImage.exists
-							.col-xs-6.col-sm-4.col-md-3.gallery-image
+							.col-xs-4.col-sm-4.col-md-3.gallery-image
 								a(href=data.gallerypost.heroImage.url)
 									img(src=data.gallerypost._.heroImage.limit(500,500), alt=data.gallerypost.name + ' hero image').img-responsive
 						each image, i in data.gallerypost.images
-							.col-xs-6.col-sm-4.col-md-3.gallery-image
+							.col-xs-4.col-sm-4.col-md-3.gallery-image
 								a(href=image.url)
 									img(src=image.limit(500,500), alt=data.gallerypost.name + ' image ' + (i+1)).img-responsive
 
