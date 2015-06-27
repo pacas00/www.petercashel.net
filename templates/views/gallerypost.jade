@@ -20,10 +20,10 @@ block content
 						.carousel-inner
 							if data.gallerypost.heroImage.exists
 								.item.active
-									img(src=data.gallerypost._.heroImage, alt=data.gallerypost.name + ' hero image')
+									img(data-src=data.gallerypost._.heroImage, alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
 								.item
-									img(src=image, alt=data.gallerypost.name + ' image ' + (i+1))
+									img(data-src=image, alt=data.gallerypost.name + ' image ' + (i+1))
 
 						.carousel-control
 							a.left.carousel-control(href="#myCarousel" data-slide="prev")
