@@ -3,6 +3,6 @@
 
 git pull
 
-sleep 15
+sleep 60
 
 ./updateLoop.sh
