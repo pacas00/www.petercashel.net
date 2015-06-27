@@ -15,16 +15,17 @@ block content
 					if data.gallerypost.publishedDate
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
 				
-				.gallery-images
-					if data.gallerypost.heroImage.exists
-						.gallery-image
-							a(href=data.gallerypost.heroImage.url).gallery-image
-								img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image').gallery-image
+				.carousel
+					.gallery-images
+						if data.gallerypost.heroImage.exists
+							.gallery-image
+								a(href=data.gallerypost.heroImage.url).gallery-image
+									img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image').gallery-image
 					
-					each image, i in data.gallerypost.images
-						.gallery-image
-							a(href=image.url)
-								img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1)).gallery-image
+						each image, i in data.gallerypost.images
+							.gallery-image
+								a(href=image.url)
+									img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1)).gallery-image
 
 block page-js
 	script(src='/js/bootstrap/modal.js')
