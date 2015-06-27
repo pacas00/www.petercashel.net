@@ -11,15 +11,12 @@ block content
 				a(href='/gallery/' + data.gallerypost.key): h2= data.gallerypost.name
 					if data.gallerypost.publishedDate
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
-				
-					if data.gallerypost.heroImage.exists
-						.row
-							.col-xs-6.col-sm-4.col-md.3.data.gallery-image
+					.row
+						.col-xs-6.col-sm-4.col-md.3
+							if data.gallerypost.heroImage.exists
 								a(href=data.gallerypost.heroImage.url)
 									img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image')
-					.row	
 						each image, i in data.gallerypost.images
-							.col-xs-6.col-sm-4.col-md.3
-								a(href=image.url)
-									img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1))
+							a(href=image.url)
+								img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1))
 
