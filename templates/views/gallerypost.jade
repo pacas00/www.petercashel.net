@@ -16,20 +16,15 @@ block content
 					p.
 					.carousel
 					#myCarousel.carousel.slide(data-ride="carousel")
-						// Indicators
-						ol.carousel-indicators
-							li.active(data-target="#myCarousel" data-slite-to="0")
-							li(data-target="#myCarousel" data-slite-to="1")
-							li(data-target="#myCarousel" data-slite-to="2")
 						// Wrapper for slides
 						.carousel-inner
 							if data.gallerypost.heroImage.exists
 								.item.active
-									img(src=data.gallerypost._.heroImage.url, alt=data.gallerypost.name + ' hero image')
+									img(data-src=data.gallerypost._.heroImage.url, alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
 								.item
 									a(href=image.url)
-										img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+										img(data-src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
 
 						a.left.carousel-control(href="#myCarousel" data-slide="prev")
 							span.glyphicon.glyphicon-chevron-left
