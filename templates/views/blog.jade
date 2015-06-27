@@ -5,9 +5,9 @@ mixin post(post)
 		.panel
 			.panel-heading
 				a(href='/blog/post/' + post.slug)= post.title
-				if post.publishedDate
-					.text-right
-						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
+					if post.publishedDate
+						.text-right
+							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 				
 			.panel-body
 				if post.image.exists
