@@ -12,17 +12,14 @@ block content
 					if data.gallerypost.publishedDate
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
 				
-				.row
 					if data.gallerypost.heroImage.exists
-						.col-xs-6.col-sm-4.col-md.3.data.gallery-image
-							a(href=data.gallerypost.heroImage.url)
-								img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image')
-				.row	
-					each image, i in data.gallerypost.images
-						.col-xs-6.col-sm-4.col-md.3.data.gallery-image
-							a(href=image.url)
-								img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1))
+						.row
+							.col-xs-6.col-sm-4.col-md.3.data.gallery-image
+								a(href=data.gallerypost.heroImage.url)
+									img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image')
+					.row	
+						each image, i in data.gallerypost.images
+							.col-xs-6.col-sm-4.col-md.3
+								a(href=image.url)
+									img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1))
 
-block page-js
-	script(src='/js/bootstrap/modal.js')
-	script(src='/js/bootstrap/carousel.js')
