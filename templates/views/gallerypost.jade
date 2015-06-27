@@ -19,12 +19,12 @@ block content
 					if data.gallerypost.heroImage.exists
 						.row
 							.col-xs-12
-								a(href=data.gallerypost.heroImage.limit(900,600), title=data.gallerypost.name + ' hero image', rel='gallery').gallery-image
+								a(href=data.gallerypost.heroImage.limit(900,600), title=data.gallerypost.name + ' hero image', rel='gallery')
 									img(src=data.gallerypost.heroImage.limit(640,640), alt=data.gallerypost.name + ' hero image')
 					.row
 						each image, i in data.gallerypost.images
 							.col-xs-6.col-sm-4.col-md-3
-								a(href=image.limit(900,600), title=data.gallerypost.name + ' image ' + (i+1), rel='gallery').gallery-image
+								a(href=image.limit(900,600), title=data.gallerypost.name + ' image ' + (i+1), rel='gallery')
 									img(src=image.fill(300,300), alt=data.gallerypost.name + ' image ' + (i+1))
 
 block page-js
