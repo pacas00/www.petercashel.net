@@ -17,8 +17,8 @@ block content
 						.col-sm-4.col-md-4.gallery-image: a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.limit(680,680)).img-rounded
 						.col-sm-8.col-md-8: .row
 							each image in data.gallerypost.images
-								.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
+								.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.limit(600,600)).img-rounded
 					else
 						each image in data.gallerypost.images
-							.col-xs-6.col-sm-4.col-md-3.data.gallery-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
+							.col-xs-6.col-sm-4.col-md-3.data.gallery-image: a(href=image.url): img(src=image.limit(600,600)).img-rounded
 		
