@@ -13,11 +13,11 @@ block content
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
 					.row
 						if data.gallerypost.heroImage.exists
-							.col-xs-6.col-sm-4.col-md.3
+							.col-xs-2.col-sm-2.col-md.2
 								a(href=data.gallerypost.heroImage.url)
 									img(src=data.gallerypost._.heroImage.limit(600,600), alt=data.gallerypost.name + ' hero image')
 						each image, i in data.gallerypost.images
-							.col-xs-6.col-sm-4.col-md.3
+							.col-xs-2.col-sm-2.col-md.2
 								a(href=image.url)
 									img(src=image.limit(600,600), alt=data.gallerypost.name + ' image ' + (i+1))
 
