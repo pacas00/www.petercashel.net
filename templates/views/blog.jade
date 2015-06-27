@@ -4,12 +4,11 @@ mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.panel
 			.panel-heading
-				.text-left
-					a(href='/blog/post/' + post.slug)= post.title
+				a(href='/blog/post/' + post.slug)= post.title
 				if post.publishedDate
 					.text-right
 						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-			hr
+				
 			.panel-body
 				if post.image.exists
 					a(href='/blog/post/' + post.slug): img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
