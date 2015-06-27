@@ -16,9 +16,9 @@ block content
 						if data.gallerypost.heroImage.exists
 							.col-xs-4.col-sm-4.col-md-3.gallery-image
 								a(href=data.gallerypost.heroImage.url)
-									img(src=data.gallerypost._.heroImage, alt=data.gallerypost.name + ' hero image').img-responsive
+									img(src=data.gallerypost._.heroImage.url, alt=data.gallerypost.name + ' hero image').img-responsive
 						each image, i in data.gallerypost.images
 							.col-xs-4.col-sm-4.col-md-3.gallery-image
 								a(href=image.url)
-									img(src=image, alt=data.gallerypost.name + ' image ' + (i+1)).img-responsive
+									img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1)).img-responsive
 
