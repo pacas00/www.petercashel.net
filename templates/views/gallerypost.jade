@@ -11,14 +11,14 @@ block content
 				a(href='/gallery/' + data.gallerypost.key): h2= data.gallerypost.name
 					if data.gallerypost.publishedDate
 						.pull-right.text-muted= data.gallerypost._.publishedDate.format('Do MMM YYYY')
-					br
+					br.
 					.row
 						if data.gallerypost.heroImage.exists
-							.col-md.2
+							.col-md.3
 								a(href=data.gallerypost.heroImage.url)
 									img(src=data.gallerypost._.heroImage.limit(500,500), alt=data.gallerypost.name + ' hero image').img-responsive
 						each image, i in data.gallerypost.images
-							.col-md.2
+							.col-md.3
 								a(href=image.url)
 									img(src=image.limit(500,500), alt=data.gallerypost.name + ' image ' + (i+1)).img-responsive
 
