@@ -5,8 +5,8 @@ mixin post(post)
 		.panel
 			.panel-heading
 				a(href='/blog/post/' + post.slug)= post.title
-					if post.publishedDate
-						.text-right
+					| if post.publishedDate
+						| .pull-right
 							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 				
 			.panel-body
