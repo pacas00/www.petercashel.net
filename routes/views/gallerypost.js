@@ -11,10 +11,21 @@ exports = module.exports = function(req, res) {
 		id: req.params.id
 	};
 	
-	// Load the galleries by sortOrder
-	view.query('galleries', keystone.list('Gallery').model.findOne({ key: locals.filters.id });
+	// Load the current post
+	view.on('init', function(next) {
+		
+		var q = keystone.list('Gallery').model.findOne({
+			key: locals.filters.id
+		});
+		
+		q.exec(function(err, result) {
+			locals.data.post = result;
+			next(err);
+		});
+		
+	});
 	
 	// Render the view
-	view.render('gallery');
+	view.render('gallerypost');
 	
 };

@@ -1,25 +1,25 @@
 extends ../layouts/default
 
-block intro
-	.container
-		h1 Gallery
-	
 block content
 	.container
 		if galleries.length
-			each gallery in galleries
-				a(href='/gallery/' + gallery.key): h2= gallery.name
-					if gallery.publishedDate
-						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
+			p: a(href='/gallery') &larr; back to the gallery
+			hr
+			if !data.post
+				h2 Invalid Post.
+			else
+				a(href='/gallery/' + data.post.key): h2= data.post.name
+					if data.post.publishedDate
+						.pull-right.text-muted= data.post._.publishedDate.format('Do MMM YYYY')
 				
 				.row.gallery-images
-					if gallery.heroImage.exists
-						.col-sm-4.col-md-4.gallery-image: a(href=gallery.heroImage.url): img(src=gallery._.heroImage.limit(680,680)).img-rounded
+					if data.post.heroImage.exists
+						.col-sm-4.col-md-4.gallery-image: a(href=data.post.heroImage.url): img(src=data.post._.heroImage.limit(680,680)).img-rounded
 						.col-sm-8.col-md-8: .row
 							each image in gallery.images
-								.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
+								.col-xs-4.col-sm-4.col-md-3.data.post-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
 					else
-						each image in gallery.images
-							.col-xs-6.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
+						each image in data.post.images
+							.col-xs-6.col-sm-4.col-md-3.data.post-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
 		else
 			h3.text-muted There are no image galleries yet.
