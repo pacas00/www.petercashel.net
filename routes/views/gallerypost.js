@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
 		
 		var q = keystone.list('Gallery').model.findOne({
 			key: locals.filters.gallerypost
-		}).populate();
+		});
 		
 		q.exec(function(err, result) {
 			locals.data.gallerypost = result;
