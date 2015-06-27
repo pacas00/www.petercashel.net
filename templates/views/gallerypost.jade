@@ -22,8 +22,16 @@ block content
 								.item.active
 									a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost.heroImage.url, alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
-								.item
-									a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+								if i == 0
+									if data.gallerypost.heroImage.exists
+										.item
+											a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+									else
+										.item.active
+											a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+								else
+									.item
+										a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
 
 						.carousel-control
 							a.left.carousel-control(href="#myCarousel" data-slide="prev")
