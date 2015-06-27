@@ -8,7 +8,7 @@ block content
 	.container
 		if galleries.length
 			each gallery in galleries
-				a(href='/gallery/' + gallery.key): h2= gallery.name
+				a(href='/gallery/gallerypost/' + gallery.key): h2= gallery.name
 					if gallery.publishedDate
 						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
 				

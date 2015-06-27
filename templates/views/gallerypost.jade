@@ -8,7 +8,7 @@ block content
 			if !data.post
 				h2 Invalid Post.
 			else
-				a(href='/gallery/' + data.post.key): h2= data.post.name
+				a(href='/gallery/gallerypost/' + data.post.key): h2= data.post.name
 					if data.post.publishedDate
 						.pull-right.text-muted= data.post._.publishedDate.format('Do MMM YYYY')
 				
