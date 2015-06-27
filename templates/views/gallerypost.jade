@@ -2,7 +2,7 @@ extends ../layouts/default
 
 block content
 	.container
-		if galleries.length
+		article
 			p: a(href='/gallery') &larr; back to the gallery
 			hr
 			if !data.post
@@ -21,5 +21,4 @@ block content
 					else
 						each image in data.post.images
 							.col-xs-6.col-sm-4.col-md-3.data.post-image: a(href=image.url): img(src=image.limit(300,300)).img-rounded
-		else
-			h3.text-muted There are no image galleries yet.
+		
