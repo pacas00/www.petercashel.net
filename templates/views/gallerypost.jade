@@ -18,13 +18,15 @@ block content
 				.gallery-images
 					if data.gallerypost.heroImage.exists
 						.row
-							.col-xs-12
-								a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.limit(800,600)).gallery-image
+							.col-xs-6.col-sm-4.col-md-3.data.gallery-image
+								a(href=data.gallerypost.heroImage.url)
+									img(src=data.gallerypost._.heroImage.limit(600,600)).gallery-image
 					
 					.row
 						each image, i in data.gallerypost.images
-							.col-xs-6.col-sm-4.col-md-3.data.gallery-image: a(href=image.url)
-								img(src=image.limit(600,600)).gallery-image
+							.col-xs-6.col-sm-4.col-md-3.data.gallery-image
+								a(href=image.url)
+									img(src=image.limit(600,600)).gallery-image
 
 block page-js
 	script(src='/js/bootstrap/modal.js')
