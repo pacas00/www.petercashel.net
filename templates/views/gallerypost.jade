@@ -21,7 +21,7 @@ block content
 							if data.gallerypost.heroImage.exists
 								.item.active
 									a(href=data.gallerypost.heroImage.url)
-										img(src=cloudinary.url(data.gallerypost._.heroImage.url, { width: 1140, height: 640, crop: 'pad', version: image.version }))
+										img(src=cloudinary.url(data.gallerypost.heroImage, { width: 1140, height: 640, crop: 'pad', version: image.version }))
 							each image, i in data.gallerypost.images
 								if i == 0
 									if data.gallerypost.heroImage.exists
