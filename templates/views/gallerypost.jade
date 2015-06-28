@@ -19,16 +19,16 @@ block content
 						// Wrapper for slides
 						.carousel-inner
 							if data.gallerypost.heroImage.exists
-								.item.active //data.gallerypost.heroImage.url
+								.item.active
 									a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.pad(1140,640), alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
 								if i == 0
 									if data.gallerypost.heroImage.exists
 										.item
-											a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+											a(href=image.url): img(src=image.pad(1140,640), alt=data.gallerypost.name + ' image ' + (i+1))
 									else
 										.item.active
-											a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
+											a(href=image.url): img(src=image.pad(1140,640), alt=data.gallerypost.name + ' image ' + (i+1))
 								else
 									.item
 										a(href=image.url): img(src=image.url, alt=data.gallerypost.name + ' image ' + (i+1))
