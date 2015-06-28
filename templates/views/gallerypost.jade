@@ -20,7 +20,7 @@ block content
 						.carousel-inner
 							if data.gallerypost.heroImage.exists
 								.item.active //data.gallerypost.heroImage.url
-									a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost.heroImage.pad(1140,640), alt=data.gallerypost.name + ' hero image')
+									a(href=data.gallerypost.heroImage.url): img(src=data.gallerypost._.heroImage.pad(1140,640), alt=data.gallerypost.name + ' hero image')
 							each image, i in data.gallerypost.images
 								if i == 0
 									if data.gallerypost.heroImage.exists
