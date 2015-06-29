@@ -8,18 +8,19 @@ block content
 	.container
 		if galleries.length
 			each gallery in galleries
-				a(href='/gallery/' + gallery.key): h2= gallery.name
-					if gallery.publishedDate
-						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
-				
-				.row.gallery-images
-					if gallery.heroImage.exists
-						.col-sm-4.col-md-4.gallery-image: a(href=gallery.heroImage.url): img(src=gallery._.heroImage.pad(640,480)).img-rounded
-						.col-sm-8.col-md-8: .row
+				.container: .well
+					a(href='/gallery/' + gallery.key): h2= gallery.name
+						if gallery.publishedDate
+							.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
+					
+					.row.gallery-images
+						if gallery.heroImage.exists
+							.col-sm-4.col-md-4.gallery-image: a(href=gallery.heroImage.url): img(src=gallery._.heroImage.pad(640,480)).img-rounded
+							.col-sm-8.col-md-8: .row
+								each image in gallery.images
+									.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.pad(320,240)).img-rounded
+						else
 							each image in gallery.images
-								.col-xs-4.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.pad(320,240)).img-rounded
-					else
-						each image in gallery.images
-							.col-xs-6.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.pad(320,240)).img-rounded
+								.col-xs-6.col-sm-4.col-md-3.gallery-image: a(href=image.url): img(src=image.pad(320,240)).img-rounded
 		else
 			h3.text-muted There are no image galleries yet.
