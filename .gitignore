@@ -31,3 +31,5 @@ node_modules
 .DS_Store
 
 devData/
+public/styles/custom/theme-Bootswatch-slate/variables.css
+public/styles/custom/theme-mine/variables.css
