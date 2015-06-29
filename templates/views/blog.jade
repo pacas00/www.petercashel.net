@@ -6,16 +6,15 @@ mixin post(post)
 			div
 				
 				a(href='/blog/post/' + post.slug)= post.title
-				
-				if post.publishedDate
+				| if post.publishedDate
 					.text-right
 						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 				
-				
-				p.lead.text-muted 
-				p!= post.content.brief
-				if post.content.extended
-					p.read-more: a(href='/blog/post/' + post.slug) Read more...
+				div(style="float:left;width:75%;")
+					p.lead.text-muted 
+					p!= post.content.brief
+					if post.content.extended
+						p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 				if post.image.exists
 					div(style="float:right;width:25%;")
