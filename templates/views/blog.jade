@@ -23,7 +23,7 @@ mixin post(post)
 			else
 				if post.videoData.exists
 					div(style="float:right;width:25%;")
-						a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
+						img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive : a(href='/blog/post/' + post.slug)
 block intro
 	.container
 		h1= data.category ? data.category.name : 'Blog'
