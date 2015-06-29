@@ -2,7 +2,7 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.well-sm
+		.container: .well
 			a(href='/blog/post/' + post.slug)= post.title
 				if post.publishedDate
 					.text-right
