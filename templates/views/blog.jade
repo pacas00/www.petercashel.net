@@ -3,22 +3,20 @@ extends ../layouts/default
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.well-sm
+			a(href='/blog/post/' + post.slug)= post.title
+				if post.publishedDate
+					.text-right
+						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			
-				a(href='/blog/post/' + post.slug)= post.title
-					if post.publishedDate
-						.text-right
-							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-				
-			
-				if post.image.exists
-					a(href='/blog/post/' + post.slug): img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
-				else
-					if post.videoData.exists
-						a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
-				p.lead.text-muted 
-				p!= post.content.brief
-				if post.content.extended
-					p.read-more: a(href='/blog/post/' + post.slug) Read more...
+			if post.image.exists
+				a(href='/blog/post/' + post.slug): img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
+			else
+				if post.videoData.exists
+					a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
+			p.lead.text-muted 
+			p!= post.content.brief
+			if post.content.extended
+				p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 block intro
 	.container
