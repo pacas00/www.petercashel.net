@@ -9,10 +9,12 @@ mixin post(post)
 						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			
 			if post.image.exists
-				a(href='/blog/post/' + post.slug): img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
+				div
+					a(href='/blog/post/' + post.slug): img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
 			else
 				if post.videoData.exists
-					a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
+					div
+						a(href='/blog/post/' + post.slug): img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
 			p.lead.text-muted 
 			p!= post.content.brief
 			if post.content.extended
