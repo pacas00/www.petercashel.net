@@ -4,7 +4,8 @@ mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.container: .well
 			div(style="float:left;width:75%;").well
-				a(href='/blog/post/' + post.slug)= h2 post.title
+				a(href='/blog/post/' + post.slug)
+					h2 post.title
 			
 			div(style="float:right;width:25%;").well
 				if post.publishedDate
