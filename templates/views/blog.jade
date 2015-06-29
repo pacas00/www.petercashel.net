@@ -2,27 +2,27 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.container: .well
-			div(style="float:left;width:75%;").well
+		.container: 
+			div(style="float:left;width:75%;")
 				a(href='/blog/post/' + post.slug)
 					h2= post.title
 			
-			div(style="float:right;width:25%;").well
+			div(style="float:right;width:25%;")
 				if post.publishedDate
 					.text-right
 						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-			div(style="float:left;width:75%;").well
+			div(style="float:left;width:75%;")
 				p.lead.text-muted 
 				p!= post.content.brief
 				if post.content.extended
 					p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 			if post.image.exists
-				div(style="float:right;width:25%;").well
+				div(style="float:right;width:25%;")
 					img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
 			else
 				if post.videoData.exists
-					div(style="float:right;width:25%;").well
+					div(style="float:right;width:25%;")
 						img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
@@ -48,7 +48,7 @@ block content
 					.blog
 						each post in data.posts.results
 							.container
-								+post(post)
+								+post(post).well
 					
 					if data.posts.totalPages > 1
 						ul.pagination
