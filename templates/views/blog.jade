@@ -19,11 +19,11 @@ mixin post(post)
 
 			if post.image.exists
 				div(style="float:right;width:30%;")
-					img(src=post._.image.fit(240,160)).img.pull-right.img-responsive
+					img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
 			else
 				if post.videoData.exists
 					div(style="float:right;width:30%;")
-						img(src=post.videoData.thumbnailUrl width=240, height=160).img.pull-right.img-responsive
+						img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
 		h1= data.category ? data.category.name : 'Blog'
