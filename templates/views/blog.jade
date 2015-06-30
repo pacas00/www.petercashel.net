@@ -13,7 +13,7 @@ mixin post(post)
 						p.lead.text-muted
 							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			div(style="float:left;width:60%;")
-				post.content.brief
+				| #{post.content.brief}
 				if post.content.extended
 					p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
