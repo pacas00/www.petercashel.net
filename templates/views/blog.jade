@@ -11,7 +11,7 @@ mixin post(post)
 				if post.publishedDate
 					.text-right
 						p.lead.text-muted
-						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
+							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			div(style="float:left;width:60%;")
 				p!= post.content.brief
 				if post.content.extended
