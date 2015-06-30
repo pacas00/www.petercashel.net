@@ -13,9 +13,9 @@ mixin post(post)
 						| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			div(style="float:left;width:60%;")
 				p.lead.text-muted 
-				p!= post.content.brief
-				if post.content.extended
-					p.read-more: a(href='/blog/post/' + post.slug) Read more...
+					p!= post.content.brief
+					if post.content.extended
+						p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 			if post.image.exists
 				div(style="float:right;width:30%;")
