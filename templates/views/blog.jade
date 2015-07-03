@@ -13,17 +13,17 @@ mixin post(post)
 							p.lead.text-muted
 								| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			.row
-				.col-xs-8.col-sm-8.col-md-8.col-lg-9
+				.col-xs-4.col-sm-8.col-md-8.col-lg-9
 					p!= post.content.brief
 					if post.content.extended
 						p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 				if post.image.exists
-					.col-xs-6.col-sm-4.col-md-4.col-lg-3
+					.col-xs-4.col-sm-4.col-md-4.col-lg-3
 						img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
 				else
 					if post.videoData.exists
-						.col-xs-6.col-sm-4.col-md-4.col-lg-3
+						.col-xs-4.col-sm-4.col-md-4.col-lg-3
 							img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
@@ -31,7 +31,7 @@ block intro
 
 block content
 	.container: .row
-		.col-xs-8.col-sm-8.col-md-9.col-lg-9
+		.col-sm-8.col-md-9.col-lg-9
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
