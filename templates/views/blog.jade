@@ -2,10 +2,10 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.col-sm-4.col-md-6.col-lg-7
+		.col-sm-8.col-md-9.col-lg-9
 			.well(style="padding: 9px; float:left; border-radius: @border-radius-small;")
 				.row
-					.col-sm-2.col-md-3.col-lg-3
+					.col-sm-6.col-md-6.col-lg-6
 						a(href='/blog/post/' + post.slug)
 							h3= post.title
 					
@@ -15,7 +15,7 @@ mixin post(post)
 								p.lead.text-muted
 									| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 				.row
-					.col-sm-2.col-md-3.col-lg-3
+					.col-sm-6.col-md-6.col-lg-3
 						p!= post.content.brief
 						if post.content.extended
 							p.read-more: a(href='/blog/post/' + post.slug) Read more...
@@ -72,7 +72,7 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-sm-4.col-md-3.col-lg-2
+			.col-sm-4.col-md-3.col-lg-3
 				h2 Categories
 				.list-group(style='margin-top: 70px;')
 					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
