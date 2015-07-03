@@ -6,7 +6,7 @@ mixin post(post)
 			.row
 				.col-sm-8.col-md-9.col-lg-9
 					a(href='/blog/post/' + post.slug)
-						h3.text-weight-normal= post.title
+						h3.text-weight-normal(style="align=top;")= post.title
 				.col-sm-2.col-md-3.col-lg-3
 					if post.publishedDate
 						.text-right
