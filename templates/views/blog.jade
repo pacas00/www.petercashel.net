@@ -2,29 +2,31 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.col-sm-1.col-md-1.col-lg-1
+		.col-sm-4.col-md-6.col-lg-7
 			.container
-				div(style="float:left;width:60%;")
-					a(href='/blog/post/' + post.slug)
-						h3= post.title
-				
-				div(style="float:right;width:30%;")
-					if post.publishedDate
-						.text-right
-							p.lead.text-muted
-								| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-				div(style="float:left;width:60%;")
-					p!= post.content.brief
-					if post.content.extended
-						p.read-more: a(href='/blog/post/' + post.slug) Read more...
+				.row
+					.col-sm-2.col-md-3.col-lg-3
+						a(href='/blog/post/' + post.slug)
+							h3= post.title
+					
+					.col-sm-2.col-md-3.col-lg-3
+						if post.publishedDate
+							.text-right
+								p.lead.text-muted
+									| #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				.row
+					.col-sm-2.col-md-3.col-lg-3
+						p!= post.content.brief
+						if post.content.extended
+							p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
-				if post.image.exists
-					div(style="float:right;width:30%;")
-						img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
-				else
-					if post.videoData.exists
-						div(style="float:right;width:30%;")
-							img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
+					if post.image.exists
+						.col-sm-2.col-md-3.col-lg-3
+							img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
+					else
+						if post.videoData.exists
+							.col-sm-2.col-md-3.col-lg-3
+								img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
 		h1= data.category ? data.category.name : 'Blog'
