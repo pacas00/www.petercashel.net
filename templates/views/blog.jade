@@ -47,8 +47,8 @@ block content
 						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.col-sm-3.col-md-5
-								.container: .well(style="border-radius: @border-radius-small;")
+							.col-sm-3.col-md-4
+								.container: .well(style="padding: 3px; float:left; width:70%;  border-radius: @border-radius-small;")
 									+post(post)
 					
 					if data.posts.totalPages > 1
