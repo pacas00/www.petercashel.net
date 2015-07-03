@@ -4,26 +4,26 @@ mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.well(style="padding: 9px; float:left; border-radius: @border-radius-small;")
 			.row
-				.col-sm-8.col-md-9.col-lg-9
+				.col-sm-7.col-md-8.col-lg-9
 					a(href='/blog/post/' + post.slug)
 						h3.text-weight-normal(style="padding:4px;margin:4px;")= post.title
-				.col-sm-2.col-md-3.col-lg-3
+				.col-sm-3.col-md-4.col-lg-3
 					if post.publishedDate
 						.text-right
 							p.lead.text-muted
 								| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			.row
-				.col-sm-8.col-md-9.col-lg-9
+				.col-sm-3.col-md-8.col-lg-9
 					p!= post.content.brief
 					if post.content.extended
 						p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 				if post.image.exists
-					.col-sm-2.col-md-3.col-lg-3
+					.col-sm-3.col-md-4.col-lg-3
 						img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
 				else
 					if post.videoData.exists
-						.col-sm-2.col-md-3.col-lg-3
+						.col-sm-3.col-md-4.col-lg-3
 							img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
