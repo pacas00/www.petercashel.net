@@ -4,14 +4,14 @@ mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.well(style="padding: 9px; float:left; border-radius: @border-radius-small;")
 			.row
+				.col-sm-8.col-md-9.col-lg-9
+					a(href='/blog/post/' + post.slug)
+						h3= post.title
 				.col-sm-2.col-md-3.col-lg-3
 					if post.publishedDate
 						.text-right
 							p.lead.text-muted
-								| #{post._.publishedDate.format('MMMM Do, YYYY')}
-				.col-sm-8.col-md-9.col-lg-9
-					a(href='/blog/post/' + post.slug)
-						h3= post.title 
+								| #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			.row
 				.col-sm-8.col-md-9.col-lg-9
 					p!= post.content.brief
