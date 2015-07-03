@@ -3,7 +3,7 @@ extends ../layouts/default
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		.col-sm-4.col-md-6.col-lg-7
-			.container
+			.container: .well(style="padding: 9px; border-radius: @border-radius-small;")
 				.row
 					.col-sm-2.col-md-3.col-lg-3
 						a(href='/blog/post/' + post.slug)
@@ -50,8 +50,7 @@ block content
 						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.container: .well(style="padding: 9px; border-radius: @border-radius-small;")
-								+post(post)
+							+post(post)
 					
 					if data.posts.totalPages > 1
 						ul.pagination
