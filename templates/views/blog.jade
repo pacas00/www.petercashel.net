@@ -30,7 +30,7 @@ block intro
 
 block content
 	.container: .row
-		.col-sm-8.col-md-9
+		.col-sm-8.col-md-9.col-lg-10
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
@@ -47,7 +47,7 @@ block content
 						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.col-sm-3.col-md-4
+							.col-sm-3.col-md-3.col-lg-4
 								.container: .well(style="padding: 3px; float:left; width:70%;  border-radius: @border-radius-small;")
 									+post(post)
 					
@@ -71,7 +71,7 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-sm-4.col-md-3
+			.col-sm-4.col-md-3.col-lg-2
 				h2 Categories
 				.list-group(style='margin-top: 70px;')
 					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
