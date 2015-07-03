@@ -2,7 +2,7 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.container(style="width:100%;")
+		.container
 			div(style="float:left;width:60%;")
 				a(href='/blog/post/' + post.slug)
 					h3= post.title
@@ -48,7 +48,7 @@ block content
 					.blog
 						each post in data.posts.results
 							.col-sm-3.col-md-3.col-lg-4
-								.container: .well(style="padding: 3px; float:left; width:70%;  border-radius: @border-radius-small;")
+								.container: .well(style="padding: 3px; float:left; border-radius: @border-radius-small;")
 									+post(post)
 					
 					if data.posts.totalPages > 1
