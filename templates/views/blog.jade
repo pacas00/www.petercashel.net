@@ -2,8 +2,8 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.container: .well(style="padding: 3px; float:left; border-radius: @border-radius-small;")
-			.col-sm-3.col-md-4.col-lg-5
+		.col-sm-3.col-md-4.col-lg-5
+			.container: .well(style="padding: 3px; float:left; border-radius: @border-radius-small;")
 				div(style="float:left;width:60%;")
 					a(href='/blog/post/' + post.slug)
 						h3= post.title
