@@ -47,7 +47,7 @@ block content
 						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.col-sm-4.col-md-5
+							.col-sm-3.col-md-5
 								.container: .well(style="padding: 9px; float:left; width:75%;  border-radius: @border-radius-small;")
 									+post(post)
 					
