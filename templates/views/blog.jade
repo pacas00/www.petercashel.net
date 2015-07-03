@@ -2,28 +2,29 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		.container
-			div(style="float:left;width:60%;")
-				a(href='/blog/post/' + post.slug)
-					h3= post.title
-			
-			div(style="float:right;width:30%;")
-				if post.publishedDate
-					.text-right
-						p.lead.text-muted
-							| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-			div(style="float:left;width:60%;")
-				p!= post.content.brief
-				if post.content.extended
-					p.read-more: a(href='/blog/post/' + post.slug) Read more...
-
-			if post.image.exists
+		.container: .well(style="padding: 3px; float:left; border-radius: @border-radius-small;")
+			.col-sm-3.col-md-4.col-lg-5
+				div(style="float:left;width:60%;")
+					a(href='/blog/post/' + post.slug)
+						h3= post.title
+				
 				div(style="float:right;width:30%;")
-					img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
-			else
-				if post.videoData.exists
+					if post.publishedDate
+						.text-right
+							p.lead.text-muted
+								| #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				div(style="float:left;width:60%;")
+					p!= post.content.brief
+					if post.content.extended
+						p.read-more: a(href='/blog/post/' + post.slug) Read more...
+
+				if post.image.exists
 					div(style="float:right;width:30%;")
-						img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
+						img(src=post._.image.fit(240,160), alt='Thumbnail').img.pull-right.img-responsive
+				else
+					if post.videoData.exists
+						div(style="float:right;width:30%;")
+							img(src=post.videoData.thumbnailUrl, alt='Video Thumbnail', width=240, height=160).img.pull-right.img-responsive
 block intro
 	.container
 		h1= data.category ? data.category.name : 'Blog'
@@ -47,9 +48,7 @@ block content
 						//h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
-							.col-sm-3.col-md-3.col-lg-4
-								.container: .well(style="padding: 3px; float:left; border-radius: @border-radius-small;")
-									+post(post)
+							+post(post)
 					
 					if data.posts.totalPages > 1
 						ul.pagination
@@ -71,7 +70,7 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-sm-4.col-md-3.col-lg-2
+			.col-sm-4.col-md-3.col-lg-3
 				h2 Categories
 				.list-group(style='margin-top: 70px;')
 					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
